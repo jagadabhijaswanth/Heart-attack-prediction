@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Attack Prediction</title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body {
+      font-family: "Arimo", sans-serif;
+      background-color:rgb(178, 17, 17);
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .container {
+      max-width: 500px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-family: "Pacifico", cursive;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Heart Attack Prediction</h1>
+
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="text" name="Age" placeholder="Age" required><br>
+      <input type="text" name="Gender" placeholder="Gender" required><br>
+      <input type="text" name="Region" placeholder="Region" required><br>
+      <input type="text" name="Smoking_History" placeholder="Smoking History" required><br>
+      <input type="text" name="Diabetes_History" placeholder="Diabetes History" required><br>
+      <input type="text" name="Hypertension_History" placeholder="Hypertension History" required><br>
+      <input type="text" name="Cholesterol_Level" placeholder="Cholesterol Level" required><br>
+      <input type="text" name="Physical_Activity" placeholder="Physical Activity" required><br>
+      <input type="text" name="Diet_Quality" placeholder="Diet Quality" required><br>
+      <input type="text" name="Alcohol_Consumption" placeholder="Alcohol Consumption" required><br>
+      <input type="text" name="Stress_Levels" placeholder="Stress Levels" required><br>
+      <input type="text" name="BMI" placeholder="BMI" required><br>
+      <input type="text" name="Heart_Rate" placeholder="Heart Rate" required><br>
+      <input type="text" name="Systolic_BP" placeholder="Systolic BP" required><br>
+      <input type="text" name="Diastolic_BP" placeholder="Diastolic BP" required><br>
+      <input type="text" name="Family_History" placeholder="Family History" required><br>
+
+      <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+
+    <div class="result">
+      {{ prediction_text }}
+    </div>
+  </div>
+
+</body>
+</html>
